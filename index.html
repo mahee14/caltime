@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calender</title>
+</head>
+<style>
+    .hero{
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(45deg,#1d0000,#20205b);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .calender{
+        width: 300px;
+        height: 250px;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 5px;
+    }
+    .left ,.right{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 20px;
+    }
+    .right{
+        background-color: red;
+        color: #fff;
+        width: 42%;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10 px;
+    }
+    .left{
+        width: 58%;
+
+    }
+    #date{
+        font-size: 75px;
+        line-height:14px;
+    }
+</style>
+<body>
+    <div class="hero">
+        <div class="calender">
+            <div class="left">
+                <p id="date">01</p>
+                <p id="day">sunday</p>
+            </div>
+            <div class="right">
+                <p id="month">jaunary</p>
+                <p id="year">2020</p>
+            </div>
+            <div class="clock">
+                00:00:00
+            </div>
+        </div>
+    </div>
+    <script>
+        const date=document.getElementById("date");
+        const day=document.getElementById("day");
+        const month=document.getElementById("month");
+        const year=document.getElementById("year");
+
+        const today=new Date();
+        const weekdays=["SUNDAY","MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"]
+        const Months=["JAUNAURY","FEBRAURY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]
+
+    date.innerHTML =(today.getDate()<10?"0":"") + today.getDate();
+    day.innerHTML =weekdays[today.getDay()];
+    month.innerHTML =Months[today.getMonth()];
+    year.innerHTML =today.getFullYear();
+    </script>
+</body>
+</html>
